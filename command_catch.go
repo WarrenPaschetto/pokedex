@@ -30,6 +30,7 @@ func commandCatch(cnfg *config, args ...string) error {
 		return nil
 	}
 	fmt.Printf("%s was caught!\n", pokemonName)
+	fmt.Println("You may now inspect it with the inspect command.")
 	cnfg.caughtPokemon[pokemonName] = pokemon
 
 	return nil

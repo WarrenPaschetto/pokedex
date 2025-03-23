@@ -18,7 +18,7 @@ func (c *Client) ListLocations(pageURL *string) (RespShallowLocations, error) {
 	dat, ok := c.cache.Get(url)
 	if ok {
 		// cache hit
-		fmt.Println("Cache hit!!")
+		//fmt.Println("Cache hit!!")
 		locationsResp := RespShallowLocations{}
 		err := json.Unmarshal(dat, &locationsResp)
 		if err != nil {
@@ -52,7 +52,7 @@ func (c *Client) ListLocations(pageURL *string) (RespShallowLocations, error) {
 	if err != nil {
 		return RespShallowLocations{}, err
 	}
-	fmt.Println("....Adding to cache")
+	//fmt.Println("....Adding to cache")
 	c.cache.Add(url, dat)
 
 	return locationsResp, nil
@@ -67,7 +67,7 @@ func (c *Client) GetLocationArea(locationAreaName string) (LocationArea, error) 
 	dat, ok := c.cache.Get(url)
 	if ok {
 		// cache hit
-		fmt.Println("Cache hit!!")
+		//fmt.Println("Cache hit!!")
 		locationAreaResp := LocationArea{}
 		err := json.Unmarshal(dat, &locationAreaResp)
 		if err != nil {
@@ -101,7 +101,7 @@ func (c *Client) GetLocationArea(locationAreaName string) (LocationArea, error) 
 	if err != nil {
 		return LocationArea{}, err
 	}
-	fmt.Println("....Adding to cache")
+	//fmt.Println("....Adding to cache")
 	c.cache.Add(url, dat)
 
 	return locationAreaResp, nil
