@@ -21,6 +21,7 @@ type cacheEntry struct {
 func NewCache(ttl time.Duration) *Cache {
 	c := &Cache{
 		entries: make(map[string]cacheEntry),
+		mu:      sync.Mutex{},
 		ttl:     ttl,
 	}
 
